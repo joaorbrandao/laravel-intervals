@@ -1,0 +1,47 @@
+{
+    "name": "joaorbrandao/laravel-intervals",
+    "description": "This package creates a simple way of adding time intervals to your projects.",
+    "homepage": "https://github.com/joaorbrandao/laravel-intervals",
+    "keywords": ["laravel", "joaorbrandao", "carbon", "time", "date"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "João Brandão",
+            "email": "joaorbrandao.dev@outlook.pt",
+            "homepage": "http://joaorbrandao.github.io/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.11",
+        "illuminate/support": "^5.8",
+        "nesbot/carbon": "^2.20"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "7.*",
+        "orchestra/testbench": "^3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "JoaoBrandao\\LaravelIntervals\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JoaoBrandao\\LaravelIntervals\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JoaoBrandao\\LaravelIntervals\\LaravelIntervalsServiceProvider"
+            ],
+            "aliases": {
+                "LaravelFilters": "JoaoBrandao\\LaravelIntervals\\Facade"
+            }
+        }
+    }
+}
