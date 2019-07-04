@@ -17,13 +17,15 @@ A config file is going to be published in "config/laravel-intervals.php".
 ### Configurations
 Basically you can make 2 thing you can do: enable/disable the package and create, edit or remove the time intervals.
 Each time interval has 5 properties: start, end, enabled, id and name.<br>
-| Property | Description |
-|----------|-------------|
-| start | Represents the start time of the interval. |
-| end | Represents the end time of the interval. |
-| enabled | Enables/disables the usage of the interval. |
-| id | Identifies the interval as unique. |
-| name | The interval's name for translation purposes. |
+
+| Property | Description                                   |
+|----------|-----------------------------------------------|
+| start    | Represents the start time of the interval.    |
+| end      | Represents the end time of the interval.      |
+| enabled  | Enables/disables the usage of the interval.   |
+| id       | Identifies the interval as unique.            |
+| name     | The interval's name for translation purposes. |
+
 
 #### 1. Enable/Disable the usage of the package
 ```php
@@ -64,5 +66,5 @@ The result of the facade is the time interval set defined in the configuration f
 LaravelIntervals::last7Days();
 ```
 
-# License
+## License
 laravel-intervals is an open-source laravel package licensed under the MIT license.
