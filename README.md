@@ -63,7 +63,20 @@ Adding a custom time interval is as easy as adding a new entry set to "intervals
 One of the ways of using this is with the Facade.
 The result of the facade is the time interval set defined in the configuration file with the start and end properties being Carbon instances.
 ```php
-LaravelIntervals::last7Days();
+LaravelIntervals::last365Days();
+
+// Return
+array:5 [
+    "start" => Illuminate\Support\Carbon {
+        date: 2018-07-04 23:03:08.257899 UTC (+00:00)
+    }
+    "end" => Illuminate\Support\Carbon {
+        date: 2019-07-04 23:03:08.258033 UTC (+00:00)
+    }
+    "enabled" => true
+    "id" => "last365Days"
+    "name" => "last_365_days"
+]
 ```
 
 ## License
