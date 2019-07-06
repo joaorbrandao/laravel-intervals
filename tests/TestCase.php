@@ -21,7 +21,7 @@ abstract class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            \JoaoBrandao\LaravelIntervals\LaravelIntervalsServiceProvider::class,
+            'JoaoBrandao\LaravelIntervals\LaravelIntervalsServiceProvider',
         ];
     }
 
@@ -33,7 +33,7 @@ abstract class TestCase extends Orchestra
     protected function getPackageAliases($app)
     {
         return [
-            'LaravelIntervals' =>  \JoaoBrandao\LaravelIntervals\Facades\LaravelIntervals::class,
+            'LaravelIntervals' =>  'JoaoBrandao\LaravelIntervals\Facades\LaravelIntervals',
         ];
     }
     /**
