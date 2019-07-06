@@ -16,7 +16,7 @@ class Repository implements LaravelIntervalsInterface
      * @return array|\Illuminate\Config\Repository|mixed|string
      * @throws \Exception
      */
-    public static function __callStatic($name, $arguments)
+    public function __call($name, $arguments)
     {
         $dateTimeConfig = config("laravel-intervals.intervals.$name");
 

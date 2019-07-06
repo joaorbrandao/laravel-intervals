@@ -1,12 +1,12 @@
 <?php
 
-namespace Tests\Unit;
+namespace JoaoBrandao\LaravelFilters\Tests;
 
 use JoaoBrandao\LaravelFilters\Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-//use JoaoBrandao\LaravelIntervals\Facades\LaravelIntervals;
-use JoaoBrandao\LaravelIntervals\Repository as LaravelIntervals;
+use JoaoBrandao\LaravelIntervals\Facades\LaravelIntervals;
+//use JoaoBrandao\LaravelIntervals\Repository as LaravelIntervals;
 
 class LaravelIntervalsTest extends TestCase
 {
@@ -15,13 +15,11 @@ class LaravelIntervalsTest extends TestCase
     protected function setUp() : void
     {
         parent::setUp();
-
-        $this->laravelIntervals = new LaravelIntervals();
     }
 
     public function test_all()
     {
-        $dateTime = $this->laravelIntervals->all();
+        $dateTime = LaravelIntervals::all();
 
         $allFromConfig = config('laravel-intervals.intervals');
 
@@ -30,7 +28,7 @@ class LaravelIntervalsTest extends TestCase
 
     public function test_enabled()
     {
-        $dateTime = $this->laravelIntervals->enabled();
+        $dateTime = LaravelIntervals::enabled();
 
         $allFromConfig = collect(config('laravel-intervals.intervals'));
 

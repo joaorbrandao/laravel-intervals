@@ -15,7 +15,7 @@
     </php>
 
     <testsuites>
-        <testsuite name="LaravelFilters Test Suite">
+        <testsuite name="LaravelIntervals Test Suite">
             <directory suffix=".php">tests</directory>
         </testsuite>
     </testsuites>
