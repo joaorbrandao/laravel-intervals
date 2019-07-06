@@ -4,6 +4,8 @@ This package creates a simple way of adding time intervals to your projects.
 ## Installing 
 ```shell
 composer require joaorbrandao/laravel-intervals
+
+php artisan vendor:publish --provider=JoaoBrandao\LaravelIntervals\LaravelIntervalsServiceProvider
 ```
 The package will automatically register itself. However if you prefer to register Service Provider by yourself, update your `config/app.php` file:
 ```php
