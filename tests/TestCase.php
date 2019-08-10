@@ -1,6 +1,6 @@
 <?php
 
-namespace JoaoBrandao\LaravelFilters\Tests;
+namespace JoaoBrandao\LaravelIntervals\Tests;
 
 use JoaoBrandao\LaravelIntervals\Facades\LaravelIntervals;
 use Orchestra\Testbench\TestCase as Orchestra;

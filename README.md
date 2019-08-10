@@ -1,6 +1,10 @@
 # laravel-intervals
 This package creates a simple way of adding time intervals to your projects.
 
+[![Latest Stable Version](https://poser.pugx.org/joaorbrandao/laravel-intervals/v/stable)](https://packagist.org/packages/joaorbrandao/laravel-intervals)
+[![Total Downloads](https://poser.pugx.org/joaorbrandao/laravel-intervals/downloads)](https://packagist.org/packages/joaorbrandao/laravel-intervals)
+[![License](https://poser.pugx.org/joaorbrandao/laravel-intervals/license)](https://packagist.org/packages/joaorbrandao/laravel-intervals)
+
 ## Installing 
 ```shell
 composer require joaorbrandao/laravel-intervals
