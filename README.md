@@ -11,7 +11,7 @@ composer require joaorbrandao/laravel-intervals
 ```
 Publish the package into your application.
 ```php
-php artisan vendor:publish --provider=JoaoBrandao\LaravelIntervals\LaravelIntervalsServiceProvider
+php artisan vendor:publish --provider=Joaorbrandao\LaravelIntervals\LaravelIntervalsServiceProvider
 ```
 A config file is going to be published in "config/laravel-intervals.php".
 

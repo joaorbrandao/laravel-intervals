@@ -1,7 +1,7 @@
 <?php
 
 
-namespace JoaoBrandao\LaravelIntervals\Contracts;
+namespace Joaorbrandao\LaravelIntervals\Contracts;
 
 interface LaravelIntervalsInterface
 {

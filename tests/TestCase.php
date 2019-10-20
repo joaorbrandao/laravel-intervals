@@ -1,8 +1,8 @@
 <?php
 
-namespace JoaoBrandao\LaravelIntervals\Tests;
+namespace Joaorbrandao\LaravelIntervals\Tests;
 
-use JoaoBrandao\LaravelIntervals\Facades\LaravelIntervals;
+use Joaorbrandao\LaravelIntervals\Facades\LaravelIntervals;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +21,7 @@ abstract class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            'JoaoBrandao\LaravelIntervals\LaravelIntervalsServiceProvider',
+            'Joaorbrandao\LaravelIntervals\LaravelIntervalsServiceProvider',
         ];
     }
 

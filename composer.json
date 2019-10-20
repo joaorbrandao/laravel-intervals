@@ -23,12 +23,12 @@
     },
     "autoload": {
         "psr-4": {
-            "JoaoBrandao\\LaravelIntervals\\": "src/"
+            "Joaorbrandao\\LaravelIntervals\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "JoaoBrandao\\LaravelIntervals\\Tests\\": "tests/"
+            "Joaorbrandao\\LaravelIntervals\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -40,7 +40,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "JoaoBrandao\\LaravelIntervals\\LaravelIntervalsServiceProvider"
+                "Joaorbrandao\\LaravelIntervals\\LaravelIntervalsServiceProvider"
             ]
         }
     }
