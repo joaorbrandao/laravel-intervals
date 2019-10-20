@@ -1,10 +1,10 @@
 <?php
 
 
-namespace JoaoBrandao\LaravelIntervals;
+namespace Joaorbrandao\LaravelIntervals;
 
 use Carbon\Carbon;
-use JoaoBrandao\LaravelIntervals\Contracts\LaravelIntervalsInterface;
+use Joaorbrandao\LaravelIntervals\Contracts\LaravelIntervalsInterface;
 
 class Repository implements LaravelIntervalsInterface
 {

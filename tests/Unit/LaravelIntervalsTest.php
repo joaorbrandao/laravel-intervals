@@ -1,12 +1,12 @@
 <?php
 
-namespace JoaoBrandao\LaravelFilters\Tests;
+namespace Joaorbrandao\LaravelIntervals\Tests\Unit;
 
-use JoaoBrandao\LaravelFilters\Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use JoaoBrandao\LaravelIntervals\Facades\LaravelIntervals;
-//use JoaoBrandao\LaravelIntervals\Repository as LaravelIntervals;
+use Joaorbrandao\LaravelIntervals\Facades\LaravelIntervals;
+use Joaorbrandao\LaravelIntervals\Tests\TestCase;
+
 
 class LaravelIntervalsTest extends TestCase
 {

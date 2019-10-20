@@ -1,7 +1,9 @@
 <?php
-namespace JoaoBrandao\LaravelIntervals;
+namespace Joaorbrandao\LaravelIntervals;
 
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
+use Joaorbrandao\LaravelIntervals\Facades\LaravelIntervals;
 
 class LaravelIntervalsServiceProvider extends ServiceProvider
 {
@@ -28,10 +30,10 @@ class LaravelIntervalsServiceProvider extends ServiceProvider
             'laravel-intervals'
         );
 
-        $this->app->singleton(Repository::class, function(){
-            return new Repository();
-        });
+        $this->app->singleton('laravel-intervals', Repository::class);
 
-        $this->app->alias(Repository::class, 'LaravelIntervals');
+        // Register Facade Alias.
+        $loader = AliasLoader::getInstance();
+        $loader->alias('LaravelIntervals', LaravelIntervals::class);
     }
 }
