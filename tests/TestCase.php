@@ -33,7 +33,7 @@ abstract class TestCase extends Orchestra
     protected function getPackageAliases($app)
     {
         return [
-            'LaravelIntervals' =>  'JoaoBrandao\LaravelIntervals\Facades\LaravelIntervals',
+            'laravel-intervals' =>  LaravelIntervals::class,
         ];
     }
     /**

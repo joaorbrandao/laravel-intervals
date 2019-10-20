@@ -9,6 +9,6 @@ class LaravelIntervals extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'LaravelIntervals';
+        return 'laravel-intervals';
     }
 }
