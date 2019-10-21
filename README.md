@@ -29,11 +29,7 @@ Each time interval has 5 properties: start, end, enabled, id and name.<br>
 | name     | The interval's name for translation purposes. |
 
 
-#### 1. Enable/Disable the usage of the package
-```php
-"enable" => true
-```
-#### 2. Edit the already existing time intervals
+#### 1. Edit the already existing time intervals
 "intervals" is when you will find the already developed time intervals. Go ahead, you can edit as you want!
 ```php
 "intervals" => [
@@ -47,7 +43,7 @@ Each time interval has 5 properties: start, end, enabled, id and name.<br>
     ],
 ```
 
-#### 3. Add custom intervals made by yourself
+#### 2. Add custom intervals made by yourself
 Adding a custom time interval is as easy as adding a new entry set to "intervals" in the configuration file.
 ```php
 "intervals" => [
