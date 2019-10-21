@@ -2,8 +2,6 @@
 
 return [
 
-    'enabled' => true,
-
     'intervals' => [
         #region Days
         'last365Days' => [

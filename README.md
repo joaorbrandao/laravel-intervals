@@ -29,11 +29,7 @@ Each time interval has 5 properties: start, end, enabled, id and name.<br>
 | name     | The interval's name for translation purposes. |
 
 
-#### 1. Enable/Disable the usage of the package
-```php
-"enable" => true
-```
-#### 2. Edit the already existing time intervals
+#### 1. Edit the already existing time intervals
 "intervals" is when you will find the already developed time intervals. Go ahead, you can edit as you want!
 ```php
 "intervals" => [
@@ -47,7 +43,7 @@ Each time interval has 5 properties: start, end, enabled, id and name.<br>
     ],
 ```
 
-#### 3. Add custom intervals made by yourself
+#### 2. Add custom intervals made by yourself
 Adding a custom time interval is as easy as adding a new entry set to "intervals" in the configuration file.
 ```php
 "intervals" => [
@@ -68,17 +64,16 @@ The result of the facade is the time interval set defined in the configuration f
 LaravelIntervals::last365Days();
 
 // Return
-array:5 [
-    "start" => Illuminate\Support\Carbon {
-        date: 2018-07-04 23:03:08.257899 UTC (+00:00)
+Joaorbrandao\LaravelIntervals\Interval^ {#382
+    -end: Illuminate\Support\Carbon @1571693543^ {#767
+        date: 2019-10-21 21:32:23.050513 UTC (+00:00)
     }
-    "end" => Illuminate\Support\Carbon {
-        date: 2019-07-04 23:03:08.258033 UTC (+00:00)
-    }
-    "enabled" => true
-    "id" => "last365Days"
-    "name" => "last_365_days"
-]
+    -id: "last365Days"
+    -name: "last_65_days"
+    -start: Illuminate\Support\Carbon @1540157543^ {#768
+        date: 2018-10-21 21:32:23.050440 UTC (+00:00)
+    } 
+}
 ```
 
 ## License

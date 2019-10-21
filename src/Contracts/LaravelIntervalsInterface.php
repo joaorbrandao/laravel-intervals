@@ -7,7 +7,7 @@ interface LaravelIntervalsInterface
 {
     public function __call($name, $arguments);
 
-    public function all(...$arguments);
+    public function all();
 
-    public function enabled(...$arguments);
+    public function enabled();
 }

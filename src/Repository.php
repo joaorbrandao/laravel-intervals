@@ -5,6 +5,7 @@ namespace Joaorbrandao\LaravelIntervals;
 
 use Carbon\Carbon;
 use Joaorbrandao\LaravelIntervals\Contracts\LaravelIntervalsInterface;
+use Joaorbrandao\LaravelIntervals\Exceptions\ConfigurationNotFoundException;
 
 class Repository implements LaravelIntervalsInterface
 {
@@ -13,7 +14,7 @@ class Repository implements LaravelIntervalsInterface
      *
      * @param string $name
      * @param array $arguments
-     * @return array|\Illuminate\Config\Repository|mixed|string
+     * @return \Joaorbrandao\LaravelIntervals\Interval
      * @throws \Exception
      */
     public function __call($name, $arguments)
@@ -21,30 +22,23 @@ class Repository implements LaravelIntervalsInterface
         $dateTimeConfig = config("laravel-intervals.intervals.$name");
 
         if (!$dateTimeConfig) {
-            throw new \Exception("$name does not exist in the configuration file.");
+            throw new ConfigurationNotFoundException($name);
         }
 
-        if (in_array('toDateTimeString', $arguments)) {
-            $dateTimeConfig = self::toDateTimeString($dateTimeConfig);
-        }
-
-        return $dateTimeConfig;
+        return new Interval($dateTimeConfig);
     }
 
     /**
      * Get all date time configurations.
      *
-     * @param array $arguments
      * @return \Illuminate\Config\Repository|mixed
      */
-    public function all(...$arguments)
+    public function all()
     {
         $dateTimeConfig = config('laravel-intervals.intervals');
 
-        if (in_array('toDateTimeString', $arguments)) {
-            foreach ($dateTimeConfig as $key => $value) {
-                $dateTimeConfig[$key] = self::toDateTimeString($value);
-            }
+        foreach ($dateTimeConfig as $key => $value) {
+            $dateTimeConfig[$key] = new Interval($value);
         }
 
         return $dateTimeConfig;
@@ -53,49 +47,18 @@ class Repository implements LaravelIntervalsInterface
     /**
      * Get all date time configurations that are enabled.
      *
-     * @param mixed ...$arguments
      * @return array
      */
-    public function enabled(...$arguments)
+    public function enabled()
     {
         $dateTimeConfig = collect(config('laravel-intervals.intervals'))->filter(function ($value, $key) {
             return $value['enabled'] == true;
         })->all();
 
-        if (in_array('toDateTimeString', $arguments)) {
-            foreach ($dateTimeConfig as $key => $value) {
-                $dateTimeConfig[$key] = self::toDateTimeString($value);
-            }
+        foreach ($dateTimeConfig as $key => $value) {
+            $dateTimeConfig[$key] = new Interval($value);
         }
 
         return $dateTimeConfig;
     }
-
-
-    /**
-     * Convert Carbon instance to date time string.
-     *
-     * @param $dateTimeConfig
-     * @return array|string
-     */
-    private static function toDateTimeString($dateTimeConfig)
-    {
-        if (is_array($dateTimeConfig)) {
-            foreach ($dateTimeConfig as $key => $value) {
-                $dateTimeConfig[$key] = $value instanceof Carbon
-                    ? $value->toDateTimeString()
-                    : $value;
-
-            }
-
-            return $dateTimeConfig;
-        }
-
-        if ($dateTimeConfig instanceof Carbon) {
-            $dateTimeConfig = $dateTimeConfig->toDateTimeString();
-        }
-
-        return $dateTimeConfig;
-    }
-
 }
