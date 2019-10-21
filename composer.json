@@ -13,6 +13,7 @@
         }
     ],
     "require": {
+        "ext-json": "*",
         "php": ">=7.2.11",
         "illuminate/support": "^6.0",
         "nesbot/carbon": "^2.20"

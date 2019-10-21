@@ -68,17 +68,16 @@ The result of the facade is the time interval set defined in the configuration f
 LaravelIntervals::last365Days();
 
 // Return
-array:5 [
-    "start" => Illuminate\Support\Carbon {
-        date: 2018-07-04 23:03:08.257899 UTC (+00:00)
+Joaorbrandao\LaravelIntervals\Interval^ {#382
+    -end: Illuminate\Support\Carbon @1571693543^ {#767
+        date: 2019-10-21 21:32:23.050513 UTC (+00:00)
     }
-    "end" => Illuminate\Support\Carbon {
-        date: 2019-07-04 23:03:08.258033 UTC (+00:00)
-    }
-    "enabled" => true
-    "id" => "last365Days"
-    "name" => "last_365_days"
-]
+    -id: "last365Days"
+    -name: "last_65_days"
+    -start: Illuminate\Support\Carbon @1540157543^ {#768
+        date: 2018-10-21 21:32:23.050440 UTC (+00:00)
+    } 
+}
 ```
 
 ## License
