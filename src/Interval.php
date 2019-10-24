@@ -10,19 +10,19 @@ class Interval implements JsonSerializable
     /**
      * @var \Carbon\Carbon
      */
-    private $end;
+    public $end;
     /**
      * @var string
      */
-    private $id;
+    public $id;
     /**
      * @var string
      */
-    private $name;
+    public $name;
     /**
      * @var \Carbon\Carbon
      */
-    private $start;
+    public $start;
     /**
      * @var bool
      */
@@ -31,17 +31,6 @@ class Interval implements JsonSerializable
     public function __construct($laravelConfig)
     {
         $this->loadAsArray($laravelConfig);
-    }
-
-    /**
-     * Magically access this properties.
-     *
-     * @param $name
-     * @return mixed
-     */
-    public function __get($name)
-    {
-        return $this->$name;
     }
 
     /**

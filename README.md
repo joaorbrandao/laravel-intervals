@@ -65,12 +65,12 @@ LaravelIntervals::last365Days();
 
 // Return
 Joaorbrandao\LaravelIntervals\Interval^ {#382
-    -end: Illuminate\Support\Carbon @1571693543^ {#767
+    +end: Illuminate\Support\Carbon @1571693543^ {#767
         date: 2019-10-21 21:32:23.050513 UTC (+00:00)
     }
-    -id: "last365Days"
-    -name: "last_65_days"
-    -start: Illuminate\Support\Carbon @1540157543^ {#768
+    +id: "last365Days"
+    +name: "last_65_days"
+    +start: Illuminate\Support\Carbon @1540157543^ {#768
         date: 2018-10-21 21:32:23.050440 UTC (+00:00)
     } 
 }
