@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Joaorbrandao\LaravelIntervals\Facades\LaravelIntervals;
 use Joaorbrandao\LaravelIntervals\Interval;
 use Joaorbrandao\LaravelIntervals\Tests\TestCase;
+use Carbon\Carbon;
 
 
 class IntervalsTest extends TestCase
@@ -32,13 +33,52 @@ class IntervalsTest extends TestCase
     /**
      * @test
      */
-    public function the_obtained_interval_properties_cannot_be_reset()
+    public function the_obtained_interval_property_end_can_be_changed()
+    {
+        $beforeChange = $this->interval->end;
+        $this->interval->end = Carbon::now()->addHour();
+        $this->assertNotEquals($beforeChange, $this->interval->end);
+    }
+
+    /**
+     * @test
+     */
+    public function the_obtained_interval_property_id_can_be_changed()
+    {
+        $beforeChange = $this->interval->id;
+        $this->interval->id = 'id';
+        $this->assertNotEquals($beforeChange, $this->interval->id);
+    }
+
+    /**
+     * @test
+     */
+    public function the_obtained_interval_property_name_can_be_changed()
+    {
+        $beforeChange = $this->interval->name;
+        $this->interval->name = 'name';
+        $this->assertNotEquals($beforeChange, $this->interval->name);
+    }
+
+    /**
+     * @test
+     */
+    public function the_obtained_interval_property_start_can_be_changed()
+    {
+        $beforeChange = $this->interval->start;
+        $this->interval->start = Carbon::now();
+        $this->assertNotEquals($beforeChange, $this->interval->start);
+    }
+
+    /**
+     * @test
+     */
+    public function the_obtained_interval_property_enabled_can_not_be_changed()
     {
         $this->expectException('Error');
 
-        $this->interval->start = 1;
+        $this->interval->enabled = true;
     }
-
     /**
      * @test
      */
