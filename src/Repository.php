@@ -4,6 +4,7 @@
 namespace Joaorbrandao\LaravelIntervals;
 
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Joaorbrandao\LaravelIntervals\Contracts\LaravelIntervalsInterface;
 use Joaorbrandao\LaravelIntervals\Exceptions\ConfigurationNotFoundException;
 
@@ -60,5 +61,24 @@ class Repository implements LaravelIntervalsInterface
         }
 
         return $dateTimeConfig;
+    }
+
+    /**
+     * Parse a given start and end times to an Interval.
+     *
+     * @param $start
+     * @param $end
+     * @param $id
+     * @return Interval
+     */
+    public function parse($start, $end, $id = 'custom')
+    {
+        return new Interval([
+            'id' => $id,
+            'name' => $id !== null ? Str::snake($id) : $id,
+            'start' => $start,
+            'end' => $end,
+            'enabled' => true
+        ]);
     }
 }

@@ -4,6 +4,7 @@
 namespace Joaorbrandao\LaravelIntervals;
 
 use \JsonSerializable;
+use \DateInterval;
 
 class Interval implements JsonSerializable
 {
@@ -11,18 +12,22 @@ class Interval implements JsonSerializable
      * @var \Carbon\Carbon
      */
     public $end;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var \Carbon\Carbon
      */
     public $start;
+
     /**
      * @var bool
      */
@@ -63,6 +68,28 @@ class Interval implements JsonSerializable
     public function contains($time)
     {
         return $this->start->lessThanOrEqualTo($time) && $this->end->greaterThanOrEqualTo($time);
+    }
+
+    /**
+     * Check if the current interval does not contain a given time in between
+     * the start and end times.
+     *
+     * @param $time
+     * @return bool
+     */
+    public function notContains($time)
+    {
+        return !$this->contains($time);
+    }
+
+    /**
+     * Export this interval to a DateInterval format.
+     *
+     * @return bool|DateInterval
+     */
+    public function toDateInterval()
+    {
+        return $this->end->diff($this->start);
     }
 
     /**
