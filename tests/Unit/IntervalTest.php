@@ -85,6 +85,7 @@ class IntervalsTest extends TestCase
     public function an_interval_contains_a_given_time_between_its_start_and_end()
     {
         $this->assertTrue($this->interval->contains(now()->subMonths(6)));
+        $this->assertFalse($this->interval->notContains(now()->subMonths(6)));
     }
 
     /**
@@ -93,6 +94,7 @@ class IntervalsTest extends TestCase
     public function an_interval_does_not_contain_a_given_time_that_is_not_between_its_start_and_end()
     {
         $this->assertFalse($this->interval->contains(now()->addMonth()));
+        $this->assertTrue($this->interval->notContains(now()->addMonth()));
     }
 
     /**
@@ -101,5 +103,13 @@ class IntervalsTest extends TestCase
     public function an_interval_is_automatically_encoded_to_json()
     {
         $this->assertJson($this->interval->toJson());
+    }
+
+    /**
+     * @test
+     */
+    public function an_interval_can_be_exported_to_native_date_interval()
+    {
+        $this->assertInstanceOf(\DateInterval::class, $this->interval->toDateInterval());
     }
 }

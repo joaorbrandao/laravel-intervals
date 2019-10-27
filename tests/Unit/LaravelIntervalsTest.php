@@ -4,6 +4,7 @@ namespace Joaorbrandao\LaravelIntervals\Tests\Unit;
 
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Str;
 use Joaorbrandao\LaravelIntervals\Facades\LaravelIntervals;
 use Joaorbrandao\LaravelIntervals\Interval;
 use Joaorbrandao\LaravelIntervals\Tests\TestCase;
@@ -81,8 +82,40 @@ class LaravelIntervalsTest extends TestCase
     /**
      * @test
      */
-    public function the_result_can_automatically_be_encoded_to_json()
+    public function the_result_can_be_encoded_to_json()
     {
         $this->assertJson(LaravelIntervals::last365Days()->toJson());
+    }
+
+    /**
+     * @test
+     */
+    public function the_result_can_be_exported_to_date_interval()
+    {
+        $this->assertInstanceOf(\DateInterval::class, LaravelIntervals::last365Days()->toDateInterval());
+    }
+
+    /**
+     * @test
+     */
+    public function a_new_custom_start_and_end_can_be_parsed_to_an_interval()
+    {
+        $this->assertInstanceOf(
+            Interval::class,
+            LaravelIntervals::parse('2019-10-27 10:00:00', '2019-10-26 10:00:00')
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function a_new_custom_interval_has_a_snake_case_name_when_passing_an_id()
+    {
+        $snakeName = Str::snake('customLaravelInterval');
+
+        $this->assertEquals(
+            $snakeName,
+            LaravelIntervals::parse('2019-10-27 10:00:00', '2019-10-26 10:00:00', 'customLaravelInterval')->name
+        );
     }
 }
