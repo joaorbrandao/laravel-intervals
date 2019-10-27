@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Facade;
  * General
  * @method static array all()
  * @method static array enabled()
+ * @method static \Joaorbrandao\LaravelIntervals\Interval parse($start, $end, $id = 'custom')
  *
  * Days
  * @method static \Joaorbrandao\LaravelIntervals\Interval last365Days()
