@@ -9,6 +9,7 @@ use Joaorbrandao\LaravelIntervals\Facades\LaravelIntervals;
 use Joaorbrandao\LaravelIntervals\Interval;
 use Joaorbrandao\LaravelIntervals\Tests\TestCase;
 use Orchestra\Testbench\Contracts\Laravel;
+use Carbon\Carbon;
 
 
 class LaravelIntervalsTest extends TestCase
@@ -113,9 +114,12 @@ class LaravelIntervalsTest extends TestCase
     {
         $snakeName = Str::snake('customLaravelInterval');
 
+        $interval = LaravelIntervals::parse('2019-10-27 10:00:00', '2019-10-26 10:00:00', 'customLaravelInterval');
+
         $this->assertEquals(
             $snakeName,
-            LaravelIntervals::parse('2019-10-27 10:00:00', '2019-10-26 10:00:00', 'customLaravelInterval')->name
+            $interval->name
         );
+        $this->assertInstanceOf(Carbon::class, $interval->start);
     }
 }
