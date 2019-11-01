@@ -76,8 +76,8 @@ class Repository implements LaravelIntervalsInterface
         return new Interval([
             'id' => $id,
             'name' => $id !== null ? Str::snake($id) : $id,
-            'start' => $start,
-            'end' => $end,
+            'start' => Carbon::parse($start),
+            'end' => Carbon::parse($end),
             'enabled' => true
         ]);
     }
