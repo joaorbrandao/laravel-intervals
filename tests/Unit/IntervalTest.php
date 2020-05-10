@@ -13,7 +13,7 @@ use Carbon\Carbon;
 class IntervalTest extends TestCase
 {
     protected $intervalConfig;
-    protected Interval $interval;
+    protected $interval;
 
     protected function setUp() : void
     {
