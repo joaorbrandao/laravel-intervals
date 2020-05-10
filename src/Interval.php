@@ -43,7 +43,7 @@ class Interval implements JsonSerializable
      *
      * @return bool
      */
-    public function isEnabled()
+    public function isEnabled(): bool
     {
         return $this->enabled === true;
     }
@@ -53,7 +53,7 @@ class Interval implements JsonSerializable
      *
      * @return bool
      */
-    public function isDisabled()
+    public function isDisabled(): bool
     {
         return $this->enabled === false;
     }
@@ -65,7 +65,7 @@ class Interval implements JsonSerializable
      * @param $time
      * @return bool
      */
-    public function contains($time)
+    public function contains($time): bool
     {
         return $this->start->lessThanOrEqualTo($time) && $this->end->greaterThanOrEqualTo($time);
     }
@@ -77,7 +77,7 @@ class Interval implements JsonSerializable
      * @param $time
      * @return bool
      */
-    public function notContains($time)
+    public function notContains($time): bool
     {
         return !$this->contains($time);
     }
@@ -129,7 +129,7 @@ class Interval implements JsonSerializable
      *
      * @return array
      */
-    private function payload()
+    private function payload(): array
     {
         return [
             'start' => $this->start->toDateTimeString(),

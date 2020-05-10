@@ -10,7 +10,7 @@ use Joaorbrandao\LaravelIntervals\Tests\TestCase;
 use Carbon\Carbon;
 
 
-class IntervalsTest extends TestCase
+class IntervalTest extends TestCase
 {
     protected $intervalConfig;
     protected $interval;
