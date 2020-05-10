@@ -18,7 +18,7 @@ class Repository implements LaravelIntervalsInterface
      * @return \Joaorbrandao\LaravelIntervals\Interval
      * @throws \Exception
      */
-    public function __call($name, $arguments)
+    public function __call($name, $arguments): Interval
     {
         $dateTimeConfig = config("laravel-intervals.intervals.$name");
 
@@ -32,9 +32,9 @@ class Repository implements LaravelIntervalsInterface
     /**
      * Get all date time configurations.
      *
-     * @return \Illuminate\Config\Repository|mixed
+     * @return Interval[]
      */
-    public function all()
+    public function all(): array
     {
         $dateTimeConfig = config('laravel-intervals.intervals');
 
@@ -48,9 +48,9 @@ class Repository implements LaravelIntervalsInterface
     /**
      * Get all date time configurations that are enabled.
      *
-     * @return array
+     * @return Interval[]
      */
-    public function enabled()
+    public function enabled(): array
     {
         $dateTimeConfig = collect(config('laravel-intervals.intervals'))->filter(function ($value, $key) {
             return $value['enabled'] == true;
@@ -71,7 +71,7 @@ class Repository implements LaravelIntervalsInterface
      * @param $id
      * @return Interval
      */
-    public function parse($start, $end, $id = 'custom')
+    public function parse($start, $end, $id = 'custom'): Interval
     {
         return new Interval([
             'id' => $id,

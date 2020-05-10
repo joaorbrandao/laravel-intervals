@@ -51,8 +51,8 @@ Adding a custom time interval is as easy as adding a new entry set to "intervals
             'start' => now()->subWeek()->startOfWeek()->startOfday(),
             'end' => now()->subWeek()->startOfWeek()->endOfDay(),
             'enabled' => true,
-            'id' => 'last7Days',
-            'name' => 'last_7_days',
+            'id' => 'firstDayOfLastWeek',
+            'name' => 'first_day_of_last_week',
         ],
     ],
 ```
