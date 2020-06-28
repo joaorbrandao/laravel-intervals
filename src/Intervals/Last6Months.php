@@ -3,7 +3,6 @@
 
 namespace App\LaravelIntervals;
 
-
 use Joaorbrandao\LaravelIntervals\Contracts\Interval;
 
 final class Last6Months implements Interval

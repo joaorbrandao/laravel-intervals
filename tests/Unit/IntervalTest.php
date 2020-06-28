@@ -2,14 +2,10 @@
 
 namespace Joaorbrandao\LaravelIntervals\Tests\Unit;
 
+use Carbon\Carbon;
 use App\LaravelIntervals\Last365Days;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Joaorbrandao\LaravelIntervals\Facades\LaravelIntervals;
 use Joaorbrandao\LaravelIntervals\Interval;
 use Joaorbrandao\LaravelIntervals\Tests\TestCase;
-use Carbon\Carbon;
-
 
 class IntervalTest extends TestCase
 {

@@ -2,10 +2,8 @@
 
 namespace Joaorbrandao\LaravelIntervals\Tests;
 
-use Joaorbrandao\LaravelIntervals\Facades\LaravelIntervals;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
+use Joaorbrandao\LaravelIntervals\Facades\LaravelIntervals;
 
 abstract class TestCase extends Orchestra
 {
@@ -27,7 +25,7 @@ abstract class TestCase extends Orchestra
 
     /**
      * @param \Illuminate\Foundation\Application $app
-     * 
+     *
      * @return array
      */
     protected function getPackageAliases($app)
@@ -41,6 +39,5 @@ abstract class TestCase extends Orchestra
      */
     protected function getEnvironmentSetUp($app)
     {
-
     }
 }

@@ -3,9 +3,9 @@
 
 namespace Joaorbrandao\LaravelIntervals\Exceptions;
 
+use Throwable;
 use \Exception;
 use Illuminate\Support\Str;
-use Throwable;
 
 class IntervalNotFoundException extends Exception
 {

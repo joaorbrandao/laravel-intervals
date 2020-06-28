@@ -3,8 +3,8 @@
 
 namespace Joaorbrandao\LaravelIntervals\Commands;
 
-use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Str;
+use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputArgument;
 
 class MakeLaravelInterval extends GeneratorCommand
