@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
 use Joaorbrandao\LaravelIntervals\Facades\LaravelIntervals;
 use Joaorbrandao\LaravelIntervals\Interval;
+use Joaorbrandao\LaravelIntervals\IntervalFactory;
 use Joaorbrandao\LaravelIntervals\Tests\TestCase;
 use Orchestra\Testbench\Contracts\Laravel;
 use Carbon\Carbon;
@@ -26,7 +27,7 @@ class LaravelIntervalsTest extends TestCase
     {
         $dateTime = LaravelIntervals::all();
 
-        $allFromConfig = config('laravel-intervals.intervals');
+        $allFromConfig = IntervalFactory::all();
 
         $this->assertEquals(count($allFromConfig), count($dateTime));
     }
@@ -52,8 +53,7 @@ class LaravelIntervalsTest extends TestCase
      */
     public function call_config_options_using_facade()
     {
-        $allFromConfig = config('laravel-intervals.intervals');
-
+        $allFromConfig = IntervalFactory::all();
         foreach ($allFromConfig as $key => $value)
         {
             $dateTime = LaravelIntervals::$key();
@@ -61,7 +61,7 @@ class LaravelIntervalsTest extends TestCase
             $dateTimeStart = $dateTime->start;
             $dateTimeEnd = $dateTime->end;
 
-            $itemFromConfig = config("laravel-intervals.intervals.$key");
+            $itemFromConfig = IntervalFactory::resolve($key);
             $itemStart = $itemFromConfig['start']->toDateTimeString();
             $itemEnd = $itemFromConfig['end']->toDateTimeString();
 

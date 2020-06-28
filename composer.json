@@ -29,7 +29,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Joaorbrandao\\LaravelIntervals\\Tests\\": "tests/"
+            "Joaorbrandao\\LaravelIntervals\\Tests\\": "tests/",
+            "App\\LaravelIntervals\\": "src/Intervals/"
         }
     },
     "scripts": {

@@ -1,0 +1,20 @@
+<?php
+
+namespace App\LaravelIntervals;
+
+
+use Joaorbrandao\LaravelIntervals\Contracts\Interval;
+
+final class DummyClass implements Interval
+{
+    public function resolve()
+    {
+        return [
+            'start' => '', //TODO: Start of the interval.
+            'end' => '', //TODO: End of the interval
+            'enabled' => true,
+            'id' => 'DummyId',
+            'name' => 'DummyName',
+        ];
+    }
+}
