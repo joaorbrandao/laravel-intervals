@@ -33,8 +33,7 @@ Each time interval has 5 properties: start, end, enabled, id and name.<br>
 | id       | Identifies the interval as unique.            |
 | name     | The interval's name for translation purposes. |
 
-#### 2. Add custom intervals made by yourself
-Adding a custom time interval is as easy as adding a new entry set to "intervals" in the configuration file.
+After running the command to create the interval, you must change the start and end to match with the interval name.
 ```php
 <?php
 
@@ -49,16 +48,16 @@ final class FirstDayOfLastWeek implements Interval
     {
         return [
             'start' => now()->subWeek()->startOfWeek()->startOfday(),
-                        'end' => now()->subWeek()->startOfWeek()->endOfDay(),
-                        'enabled' => true,
-                        'id' => 'firstDayOfLastWeek',
-                        'name' => 'first_day_of_last_week',
+            'end' => now()->subWeek()->startOfWeek()->endOfDay(),
+            'enabled' => true,
+            'id' => 'firstDayOfLastWeek',
+            'name' => 'first_day_of_last_week',
         ];
     }
 }
 ```
 
-### Facade
+### Make use of it!
 One of the ways of using this is with the Facade.
 The result of the facade is the time interval set defined in the configuration file with the start and end properties being Carbon instances.
 ```php
