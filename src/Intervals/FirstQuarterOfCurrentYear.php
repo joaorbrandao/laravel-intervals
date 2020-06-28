@@ -6,7 +6,7 @@ namespace App\LaravelIntervals;
 
 use Joaorbrandao\LaravelIntervals\Contracts\Interval;
 
-class FirstQuarterOfCurrentYear implements Interval
+final class FirstQuarterOfCurrentYear implements Interval
 {
     public function resolve()
     {

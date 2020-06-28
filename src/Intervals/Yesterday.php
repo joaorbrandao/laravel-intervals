@@ -6,7 +6,7 @@ namespace App\LaravelIntervals;
 
 use Joaorbrandao\LaravelIntervals\Contracts\Interval;
 
-class Yesterday implements Interval
+final class Yesterday implements Interval
 {
     public function resolve()
     {

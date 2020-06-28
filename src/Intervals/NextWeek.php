@@ -6,7 +6,7 @@ namespace App\LaravelIntervals;
 
 use Joaorbrandao\LaravelIntervals\Contracts\Interval;
 
-class NextWeek implements Interval
+final class NextWeek implements Interval
 {
     public function resolve()
     {

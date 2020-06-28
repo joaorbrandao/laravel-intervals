@@ -6,7 +6,7 @@ namespace App\LaravelIntervals;
 
 use Joaorbrandao\LaravelIntervals\Contracts\Interval;
 
-class Last365Days implements Interval
+final class Last365Days implements Interval
 {
     public function resolve()
     {
