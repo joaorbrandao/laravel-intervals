@@ -6,7 +6,7 @@ namespace Joaorbrandao\LaravelIntervals;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Joaorbrandao\LaravelIntervals\Contracts\LaravelIntervalsInterface;
-use Joaorbrandao\LaravelIntervals\Exceptions\ConfigurationNotFoundException;
+use Joaorbrandao\LaravelIntervals\Exceptions\IntervalNotFoundException;
 
 class Repository implements LaravelIntervalsInterface
 {
@@ -20,10 +20,10 @@ class Repository implements LaravelIntervalsInterface
      */
     public function __call($name, $arguments): Interval
     {
-        $dateTimeConfig = config("laravel-intervals.intervals.$name");
+        $dateTimeConfig = IntervalFactory::resolve($name);
 
         if (!$dateTimeConfig) {
-            throw new ConfigurationNotFoundException($name);
+            throw new IntervalNotFoundException($name);
         }
 
         return new Interval($dateTimeConfig);
@@ -36,7 +36,7 @@ class Repository implements LaravelIntervalsInterface
      */
     public function all(): array
     {
-        $dateTimeConfig = config('laravel-intervals.intervals');
+        $dateTimeConfig = IntervalFactory::all();
 
         foreach ($dateTimeConfig as $key => $value) {
             $dateTimeConfig[$key] = new Interval($value);

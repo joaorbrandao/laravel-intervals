@@ -2,15 +2,12 @@
 
 namespace Joaorbrandao\LaravelIntervals\Tests\Unit;
 
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Carbon\Carbon;
 use Illuminate\Support\Str;
-use Joaorbrandao\LaravelIntervals\Facades\LaravelIntervals;
 use Joaorbrandao\LaravelIntervals\Interval;
 use Joaorbrandao\LaravelIntervals\Tests\TestCase;
-use Orchestra\Testbench\Contracts\Laravel;
-use Carbon\Carbon;
-
+use Joaorbrandao\LaravelIntervals\IntervalFactory;
+use Joaorbrandao\LaravelIntervals\Facades\LaravelIntervals;
 
 class LaravelIntervalsTest extends TestCase
 {
@@ -26,7 +23,7 @@ class LaravelIntervalsTest extends TestCase
     {
         $dateTime = LaravelIntervals::all();
 
-        $allFromConfig = config('laravel-intervals.intervals');
+        $allFromConfig = IntervalFactory::all();
 
         $this->assertEquals(count($allFromConfig), count($dateTime));
     }
@@ -40,7 +37,7 @@ class LaravelIntervalsTest extends TestCase
 
         $allFromConfig = collect(config('laravel-intervals.intervals'));
 
-        $enabledFromConfig = $allFromConfig->filter(function($value, $key){
+        $enabledFromConfig = $allFromConfig->filter(function ($value, $key) {
             return $value['enabled'] === true;
         })->count();
 
@@ -52,16 +49,14 @@ class LaravelIntervalsTest extends TestCase
      */
     public function call_config_options_using_facade()
     {
-        $allFromConfig = config('laravel-intervals.intervals');
-
-        foreach ($allFromConfig as $key => $value)
-        {
+        $allFromConfig = IntervalFactory::all();
+        foreach ($allFromConfig as $key => $value) {
             $dateTime = LaravelIntervals::$key();
 
             $dateTimeStart = $dateTime->start;
             $dateTimeEnd = $dateTime->end;
 
-            $itemFromConfig = config("laravel-intervals.intervals.$key");
+            $itemFromConfig = IntervalFactory::resolve($key);
             $itemStart = $itemFromConfig['start']->toDateTimeString();
             $itemEnd = $itemFromConfig['end']->toDateTimeString();
 
