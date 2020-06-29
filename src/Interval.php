@@ -3,8 +3,8 @@
 
 namespace Joaorbrandao\LaravelIntervals;
 
-use \JsonSerializable;
 use \DateInterval;
+use \JsonSerializable;
 
 class Interval implements JsonSerializable
 {

@@ -13,8 +13,9 @@
         }
     ],
     "require": {
-        "ext-json": "*",
         "php": ">=7.2.5",
+        "ext-json": "*",
+        "friendsofphp/php-cs-fixer": "^2.16",
         "illuminate/support": "^7.0",
         "nesbot/carbon": "^2.25"
     },
@@ -29,11 +30,13 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Joaorbrandao\\LaravelIntervals\\Tests\\": "tests/"
+            "Joaorbrandao\\LaravelIntervals\\Tests\\": "tests/",
+            "App\\LaravelIntervals\\": "src/Intervals/"
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit --colors=\"always\""
+        "test": "vendor/bin/phpunit --colors=\"always\"",
+        "format": "vendor/bin/php-cs-fixer fix"
     },
     "config": {
         "sort-packages": true

@@ -3,14 +3,15 @@
 
 namespace Joaorbrandao\LaravelIntervals\Exceptions;
 
-use \Exception;
 use Throwable;
+use \Exception;
+use Illuminate\Support\Str;
 
-class ConfigurationNotFoundException extends Exception
+class IntervalNotFoundException extends Exception
 {
     public function __construct($message = "", $code = 0, Throwable $previous = null)
     {
-        $message = "Configuration '$message' does not exist on 'config/laravel-intervals.php'.";
+        $message = "Interval '$message' does not exist: php artisan make:interval " . Str::title($message);
 
         parent::__construct($message, $code, $previous);
     }

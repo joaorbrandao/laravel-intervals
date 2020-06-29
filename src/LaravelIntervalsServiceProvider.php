@@ -4,6 +4,7 @@ namespace Joaorbrandao\LaravelIntervals;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 use Joaorbrandao\LaravelIntervals\Facades\LaravelIntervals;
+use Joaorbrandao\LaravelIntervals\Commands\MakeLaravelInterval;
 
 class LaravelIntervalsServiceProvider extends ServiceProvider
 {
@@ -14,9 +15,15 @@ class LaravelIntervalsServiceProvider extends ServiceProvider
     */
     public function boot()
     {
+        // MakeQueryFilter Command
+        $this->app->bind('command.make:interval', MakeLaravelInterval::class);
+        $this->commands([
+            'command.make:interval',
+        ]);
+
         $this->publishes([
-            __DIR__.'/Config/laravel-intervals.php' => config_path('laravel-intervals.php'),
-        ], 'laravel-intervals-config');
+            __DIR__.'/Intervals' => app_path('LaravelIntervals')
+        ], 'laravel-intervals-classes');
     }
     /**
     * Make config publishment optional by merging the config from the package.
@@ -25,11 +32,6 @@ class LaravelIntervalsServiceProvider extends ServiceProvider
     */
     public function register()
     {
-        $this->mergeConfigFrom(
-            __DIR__.'/Config/laravel-intervals.php',
-            'laravel-intervals'
-        );
-
         $this->app->singleton('laravel-intervals', Repository::class);
 
         // Register Facade Alias.

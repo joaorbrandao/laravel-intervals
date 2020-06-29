@@ -13,11 +13,16 @@ Publish the package into your application.
 ```php
 php artisan vendor:publish --provider=Joaorbrandao\LaravelIntervals\LaravelIntervalsServiceProvider
 ```
-A config file is going to be published in "config/laravel-intervals.php".
+A folder containing some filters will be published in "app/LaravelIntervals". <br>
+Feel free to modify/delete them if you want!
 
 ## Usage
-### Configurations
-Basically you can make 2 thing you can do: enable/disable the package and create, edit or remove the time intervals.
+### Create a new Interval
+This command will create a new interval in "app/LaravelIntervals".
+```php
+php artisan make:interval FirstDayOfLastWeek
+```
+### Setup the Interval
 Each time interval has 5 properties: start, end, enabled, id and name.<br>
 
 | Property | Description                                   |
@@ -28,36 +33,31 @@ Each time interval has 5 properties: start, end, enabled, id and name.<br>
 | id       | Identifies the interval as unique.            |
 | name     | The interval's name for translation purposes. |
 
-
-#### 1. Edit the already existing time intervals
-"intervals" is when you will find the already developed time intervals. Go ahead, you can edit as you want!
+After running the command to create the interval, you must change the start and end to match with the interval name.
 ```php
-"intervals" => [
-        'last7Days' => [
-            'start' => now()->subDays(7),
-            'end' => now(),
-            'enabled' => true,
-            'id' => 'last7Days',
-            'name' => 'last_7_days',
-        ],
-    ],
-```
+<?php
 
-#### 2. Add custom intervals made by yourself
-Adding a custom time interval is as easy as adding a new entry set to "intervals" in the configuration file.
-```php
-"intervals" => [
-        'firstDayOfLastWeek' => [
+namespace App\LaravelIntervals;
+
+
+use Joaorbrandao\LaravelIntervals\Contracts\Interval;
+
+final class FirstDayOfLastWeek implements Interval
+{
+    public function resolve()
+    {
+        return [
             'start' => now()->subWeek()->startOfWeek()->startOfday(),
             'end' => now()->subWeek()->startOfWeek()->endOfDay(),
             'enabled' => true,
             'id' => 'firstDayOfLastWeek',
             'name' => 'first_day_of_last_week',
-        ],
-    ],
+        ];
+    }
+}
 ```
 
-### Facade
+### Make use of it!
 One of the ways of using this is with the Facade.
 The result of the facade is the time interval set defined in the configuration file with the start and end properties being Carbon instances.
 ```php
